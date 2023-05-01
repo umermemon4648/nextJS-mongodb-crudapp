@@ -1,12 +1,26 @@
 import {connectDB} from '../../../../utils/database'
 import {Event} from '../../../../models/eventModel'
 
-const products = [{
-    room : "2 rooms",
-    event: "Technical Interview Round",
-}]
+
 export default async function handler(req, res){
+
+    try {
+        
+        if (req.method == 'POST') {
+        
     await connectDB()
-    const event = await Event.create(products)
-    res.status(200).send({sucess: true, event})
+    const {date, room, event, startTime, endTime} = req.body
+    const eventData = await Event.create({date, room, event, startTime, endTime})
+    
+    await eventData.save()
+    res.status(200).json({sucess: true, eventData})
+    
+        } else {
+            res.status(400).json({error: "This method is not allowed"})
+        }
+
+    } catch (error) {
+        console.log(error.message)
+    }
+
 }
