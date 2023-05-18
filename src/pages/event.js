@@ -88,7 +88,7 @@ const event = () => {
     type="radio"
     name="radioInput"
     className="radio"
-    value="1 room"
+    value={eventState.radioInput}
     defaultChecked
   />
           1 room</label
@@ -101,7 +101,7 @@ const event = () => {
     type="radio"
     name="radioInput"
     className="radio"
-    value="2 room"
+    value={eventState.radioInput}
   />
             2 room</label
         >

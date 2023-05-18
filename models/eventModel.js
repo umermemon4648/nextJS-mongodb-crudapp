@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
 
 const schema = new mongoose.Schema({
-     date: {type: Date, default: Date.now, require: true},
-     room: {type: String, require: true},
-     event: {type: String, require: true, unique: true},
-     startTime: {type: Date, require: true},
-     endTime: {type: Date, require: true},
+     date: {type: Date, default: Date.now, required: true},
+     room: {type: String, required: true},
+     event: {type: String, required: true, unique: true},
+     startTime: {type: String, required: true},
+     endTime: {type: String, required: true},
 
 }, {timestamps: true})
 
